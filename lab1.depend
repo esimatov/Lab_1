@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1584879301 source:c:\users\batya\desktop\lab1\main.cpp
+	<iostream>
+	"Book.h"
+	<string>
+	<stdlib.h>
+
+1584876207 c:\users\batya\desktop\lab1\book.h
+	<string>
+	<cstring>
+
+1584878786 source:c:\users\batya\desktop\lab1\book.cpp
+	"Book.h"
+	<iostream>
+	<string>
+	<cstring>
+
