@@ -15,7 +15,7 @@ Book::Book(const Book &copyBook)// задал тело конструктора 
 }
 void Book :: PrintInfo()//создал тело для функции принт, выводящей информацию о книге
 {
-    cout << "�����:" << name << "\n�����:" << author << "\n������� � �����:" << countPage << endl;
+    cout << "Name of the book:" << name << "\nBook's Author:" << author << "\nCount of pages:" << countPage << endl;
 }
 void Book :: SetName(string name_d)//создал тела для метода сет
     {   this -> name = name_d;  }
@@ -40,6 +40,6 @@ int Book :: GetCountPage()
     {
         return countPage;
     }
-Book :: ~Book()
+Book :: ~Book()//деструктор не принимает параметров
 {
 }

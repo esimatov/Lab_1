@@ -7,16 +7,16 @@ using namespace std;
 
 void Interface()//написал клавиши для управления
 {
-    cout << "������� ����������:" << endl;
-    cout << "���� ��������: 1-�������� �����; 2-����� �����; 3-����� ������� � �����" << endl;
-    cout << "��������� ��������: 4-�������� �����; 5-����� �����; 6-����� ������� � �����" << endl;
-    cout << "�������������� � �������:" << endl;
-    cout << "7-�������� ��� ���������� � �����; 8-���������� �����; 9-������� �����; " << endl;
+    cout << "Control keys:" << endl;
+    cout << "Setting fields: 1-To set the title of the book; 2-To set the author of the book; 3-To set the count page of the book" << endl;
+    cout << "Getting fields: 4-To get the title of the book; 5-To get the author of the book; 6-To get the count page of the book" << endl;
+    cout << "Actions with the book:" << endl;
+    cout << "7-To show all book's fields; 8-To copy book; 9-To delete book; " << endl;
 }
 
-void showBooks(short countOfBook, Book *Books)//создал функцию которая создает первую книгу,  используя класс и указатель на каждый новый объект
+void showBooks(short countOfBook, Book *Books)//создал функцию с переменной(номер книги) и объектом класса (использован с указателем) в качестве параметров
 {
-    for (short i = 0; i < countOfBook; i++) //задал цикл,который зависит от переменной кол-ва книг
+    for (short i = 0; i < countOfBook; i++) //задал цикл,который зависит от переменной номера книги
     {
         cout << i+1 << ")";//вывод номера книги
         Books[i].PrintInfo();//вывод информации о книге при помощи функции принт
@@ -25,14 +25,13 @@ void showBooks(short countOfBook, Book *Books)//создал функцию ко
 
     int main()
 {
-    setlocale(LC_ALL, "Rus");
     string tmpName, tmpAuthor;//временные строки, которые служат для присваивания полям объекта вводимых значений
-    short var = 0, countOfBook = 1, i = 0, y = 0;//переменные для работы с методами гет/сет
+    short var = 0, countOfBook = 1, i = 0, y = 0;//переменные для работы с методами гет/сет, копирования и удаления объектов
     int tmpCountPage = 0;
     Book *Books = new Book[1], *tmpBooks;//создание объекта книга1 и выделение памяти для храниния её значений
     while (1)//цикл, который позволит пользователю начать работу с программой
     {
-        cout << "\n��� ������ ������ ������� 1,  ����� ����� 0\n" << endl;
+        cout << "\nPress 1 to start,  press 0 for exit programm\n" << endl;
         cin >> i;
         if (i == 0)// если введено 0, то объект книга1 удаляется и программа заканчивается
         {
@@ -47,39 +46,39 @@ void showBooks(short countOfBook, Book *Books)//создал функцию ко
             switch (var)//цикл взаимодействия
             {
                 case 1:
-                    cout << "\n������� �������� �����:" << endl;
+                    cout << "\nEnter the name of book:" << endl;
                     cin >> tmpName;
                     Books[i-1].SetName(tmpName);
                     break;//ввод названия
                 case 2:
-                    cout << "\n������� ������ �����:" << endl;
+                    cout << "\nEnter the author of book:" << endl;
                     cin >> tmpAuthor;
                     Books[i-1].SetAuthor(tmpAuthor);
                     break;//ввод автора
                 case 3:
-                    cout << "\n������� ����� �������:" << endl;
+                    cout << "\nEnter the count of pages of book:" << endl;
                     cin >> tmpCountPage;
                     if (tmpCountPage >= 0)
                     {
                         Books[i-1].SetCountPage(tmpCountPage);
                     }else{
-                        cout << "\n����� ������� �� ����� ���� �������������." << endl;
+                        cout << "\nThe count of pages cannot be negative ." << endl;
                         }
                     break;//ввод числа страниц
                 case 4:
-                    cout << "\n�������� �����:\t" << (tmpName = Books[i-1].GetName()) << endl;
+                    cout << "\nThe name of book:\t" << (tmpName = Books[i-1].GetName()) << endl;
                     break;//вывод названия
                 case 5:
-                    cout << "\n����� �����:\t" << (tmpAuthor = Books[i-1].GetAuthor()) << endl;
+                    cout << "\nThe author of book:\t" << (tmpAuthor = Books[i-1].GetAuthor()) << endl;
                     break;//вывод автора
                 case 6:
-                    cout << "\n����� ������� � �����:\t" << (tmpCountPage = Books[i-1].GetCountPage()) << endl;
+                    cout << "\nThe count of pages of book:\t" << (tmpCountPage = Books[i-1].GetCountPage()) << endl;
                     break;//вывод числа страниц
                 case 7:
                     Books[i-1].PrintInfo();
                     break;//вывод всей информации о книге
                 case 8:{
-                    countOfBook++;
+                    countOfBook++;//увеличиваем номер книги
                     tmpBooks = new Book[countOfBook];
                     for (y = 0; y < countOfBook-1; y++)
                     {
