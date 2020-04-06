@@ -7,6 +7,10 @@ Book::Book() //задал тело конструктора с параметр�
 {
     SetCountPage(0); //принял стандартом кол-во страниц = 0
 }
+Book::Book (int const countPage)
+{
+    this -> countPage = countPage;
+}
 Book::Book(const Book &copyBook)// задал тело конструктора копирования
 {
     this -> name = copyBook.name; //указал поля для копий объектов
@@ -17,13 +21,13 @@ void Book :: PrintInfo()//создал тело для функции принт
 {
     cout << "Name of the book:" << name << "\nBook's Author:" << author << "\nCount of pages:" << countPage << endl;
 }
-void Book :: SetName(string name_d)//создал тела для метода сет
-    {   this -> name = name_d;  }
+void Book :: SetName(string const * const name_d)//создал тела для метода сет
+    {   this -> name = *name_d;  }
 
-void Book :: SetAuthor(string author_d)
-    {   this -> author = author_d;  }
+void Book :: SetAuthor(string const * const author_d)
+    {   this -> author =*author_d;  }
 
-void Book :: SetCountPage(int countPage_d)
+void Book :: SetCountPage(int const countPage_d)
     {   this -> countPage = countPage_d;  }
 
 string Book :: GetName()//создал теля для метода гет

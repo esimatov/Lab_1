@@ -14,9 +14,9 @@ public:
     Book ();
     Book (const Book &book); //конструктор копирования
     void PrintInfo (); //функция принт
-    void SetName (string name_d); //метод сет для названия книги
-    void SetAuthor (string author_d);//для автора
-    void SetCountPage (int countPage_d);//для количества страниц
+    void SetName (string const * const name_d); //метод сет для названия книги
+    void SetAuthor (string const * const author_d);//для автора
+    void SetCountPage (int const countPage_d);//для количества страниц
     string GetName ();//метод гет для тех же полей
     string GetAuthor ();
     int GetCountPage ();
